@@ -42,26 +42,6 @@
   margin-top: 150px;
 }
 
-.App__LoginButton {
-  background-color:rgb(128, 14, 241);
-  border-radius: 10px;
-  width: 60%;
-  height: 50px;
-  display: grid;
-  place-items: center;
-  margin-top: 15px;
-  cursor: pointer;
-}
-
-.App__LoginButton > h2 {
-  color: #fff;
-  font-family: cursive;
-}
-
-.App__LoginButton:hover {
-  background-color: rgb(143, 43, 243);
-}
-
 .App__UserName {
   color: white;
   font-family: cursive;

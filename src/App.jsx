@@ -1,7 +1,10 @@
 import { useState } from 'react'
 import './App.css';
 import logo from './assets/logo.png';
-import { signInWithGoogle } from './Firebase';
+import LoginButton from './Components/LoginButton';
+import LogoutButton from './Components/LogoutButton';
+import { signInWithGoogle, logOut } from './Firebase';
+
 
 const App = () => {
 
@@ -15,20 +18,26 @@ const App = () => {
     console.log(result)
   }
 
+  const signOut = () => {
+    logOut();
+    setUserName("");
+    setPhotoURL("");
+  }
+
 
 
   return (
     <div className="App">
 
       <div className="App__Login">
-          <h2 className="App__header">Login to ProjectBud</h2>
+          <h2 className="App__header">Login to DeveloperBud</h2>
           <p className="App__subHeader">Dont have an account yet? <span className="App__subHeaderSign">Sign Up for Free</span></p>
 
-          <div className="App__LoginButton" onClick={login}>
-            <h2>Sign In with Google</h2>
-          </div>
-          <img className="App__UserPhoto" src={photoURL} alt="" />
-          <h2 className="App__UserName" onClick={login}>Welcome {userName}</h2>
+          {userName? <LogoutButton handleClick={signOut}/> : <LoginButton handleClick={login}/>}
+
+          {photoURL? <img className="App__UserPhoto" src={photoURL} alt="User Profile" /> : <div></div>}
+
+         {!userName ?  <h2 className="App__UserName">Welcome User, Please Sign In!</h2> : <h2 className="App__UserName">Welcome {userName}!</h2> }
       </div>
 
 
